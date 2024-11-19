@@ -25,12 +25,24 @@ public class MarsRover {
         this.dir = dir;
     }
 
-    public void updatePos() {
-        switch (this.dir) {
-            case N -> ++this.yPos;
-            case S -> --this.yPos;
-            case E -> ++this.xPos;
-            case W -> --this.xPos;
+    public void updatePos(String command) {
+        switch (command) {
+            case "M" -> {
+                switch (this.dir) {
+                    case N -> ++this.yPos;
+                    case S -> --this.yPos;
+                    case E -> ++this.xPos;
+                    case W -> --this.xPos;
+                }
+            }
+            case "B" -> {
+                switch (this.dir) {
+                    case N -> --this.yPos;
+                    case S -> ++this.yPos;
+                    case E -> --this.xPos;
+                    case W -> ++this.xPos;
+                }
+            }
         }
     }
 
@@ -41,16 +53,9 @@ public class MarsRover {
         }
     }
 
-    public void updatePosDir(String command) {
-        if (command.equals("M")) {
-            this.updatePos();
-        } else {
-            this.updateDir(command);
-        }
-    }
+    public String controlMarsRover(String commandBatch) {
 
-    public String controlMarsRover(String command) {
-        this.updatePosDir(command);
+        Arrays.stream(commandBatch.split("")).sequential().forEach(this::updatePosDir);
         return this.retrieveCurrentPosDir();
     }
 

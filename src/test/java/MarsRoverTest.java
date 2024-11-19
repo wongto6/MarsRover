@@ -168,5 +168,21 @@ public class MarsRoverTest {
         Assertions.assertEquals(expected_output, finalPosDir);
     }
 
+    @Test
+    void should_return_after_move_forward_2_status_when_move_forward_dir_2_N() {
+        String expected_output = "0:2:N";
+        MarsRover marsRover = new MarsRover(0, 0, Direction.N);
+        String finalPosDir = marsRover.controlMarsRover("MM");
+        Assertions.assertEquals(expected_output, finalPosDir);
+    }
+
+    @Test
+    void should_return_after_move_forward_2_status_when_move_forward_dir_3_N() {
+        String expected_output = "0:3:N";
+        MarsRover marsRover = new MarsRover(0, 0, Direction.N);
+        String finalPosDir = marsRover.controlMarsRover("MMM");
+        Assertions.assertEquals(expected_output, finalPosDir);
+    }
+
 
 }
