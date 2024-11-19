@@ -114,6 +114,16 @@ public class MarsRoverTest {
         Assertions.assertEquals(expected_output, finalPosDir);
     }
 
+    @Test
+    void should_return_after_move_forward_status_when_move_forward_dir_W_pos_9_4() {
+        String expected_output = "8:4:W";
+        MarsRover marsRover = new MarsRover(9, 4, "W");
+        String finalPosDir = marsRover.controlMarsRover("M");
+        Assertions.assertEquals(expected_output, finalPosDir);
+    }
+
+
+
 
 
 
