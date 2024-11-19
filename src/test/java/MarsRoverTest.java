@@ -130,6 +130,25 @@ public class MarsRoverTest {
         Assertions.assertEquals(expected_output, finalPosDir);
     }
 
+    @Test
+    void should_return_after_right_turn_2_status_when_right_turn_2() {
+        String expected_output = "0:0:S";
+        MarsRover marsRover = new MarsRover(0, 0, Direction.N);
+        marsRover.controlMarsRover("R");
+        String finalPosDir = marsRover.controlMarsRover("R");
+        Assertions.assertEquals(expected_output, finalPosDir);
+    }
+
+    @Test
+    void should_return_after_right_turn_3_status_when_right_turn_3() {
+        String expected_output = "0:0:W";
+        MarsRover marsRover = new MarsRover(0, 0, Direction.N);
+        marsRover.controlMarsRover("R");
+        marsRover.controlMarsRover("R");
+        String finalPosDir = marsRover.controlMarsRover("R");
+        Assertions.assertEquals(expected_output, finalPosDir);
+    }
+
 
 
 
