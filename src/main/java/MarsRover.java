@@ -32,7 +32,6 @@ public class MarsRover {
             case E -> ++this.xPos;
             case W -> --this.xPos;
         }
-
     }
 
     public void updateDir(String command) {
@@ -40,7 +39,6 @@ public class MarsRover {
             case "L" -> this.setDir(dir.turnLeft());
             case "R" -> this.setDir(dir.turnRight());
         }
-
     }
 
     public void updatePosDir(String command) {
@@ -49,7 +47,6 @@ public class MarsRover {
         } else {
             this.updateDir(command);
         }
-
     }
 
     public String controlMarsRover(String command) {
