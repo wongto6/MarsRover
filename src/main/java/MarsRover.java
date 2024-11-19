@@ -6,12 +6,11 @@
 import java.util.Arrays;
 
 public class MarsRover {
-    final String[] DIRECTIONS = new String[]{"N", "E", "S", "W"};
-    int xPos = 0;
-    int yPos = 0;
-    String dir = "N";
+    int xPos;
+    int yPos;
+    Direction dir;
 
-    public MarsRover(int xPos, int yPos, String dir) {
+    public MarsRover(int xPos, int yPos, Direction dir) {
         this.xPos = xPos;
         this.yPos = yPos;
         this.dir = dir;
@@ -22,24 +21,24 @@ public class MarsRover {
         return currentPosDir.append(this.xPos).append(":").append(this.yPos).append(":").append(this.dir).toString();
     }
 
-    public void setDir(String dir) {
+    public void setDir(Direction dir) {
         this.dir = dir;
     }
 
     public void updatePos() {
         switch (this.dir) {
-            case "N" -> ++this.yPos;
-            case "S" -> --this.yPos;
-            case "E" -> ++this.xPos;
-            case "W" -> --this.xPos;
+            case N -> ++this.yPos;
+            case S -> --this.yPos;
+            case E -> ++this.xPos;
+            case W -> --this.xPos;
         }
 
     }
 
     public void updateDir(String command) {
         switch (command) {
-            case "L" -> this.setDir((String)Arrays.asList(this.DIRECTIONS).get((Arrays.asList(this.DIRECTIONS).indexOf(this.dir) + this.DIRECTIONS.length - 1) % 4));
-            case "R" -> this.setDir((String)Arrays.asList(this.DIRECTIONS).get((Arrays.asList(this.DIRECTIONS).indexOf(this.dir) + 1) % 4));
+            case "L" -> this.setDir(dir.turnLeft());
+            case "R" -> this.setDir(dir.turnRight());
         }
 
     }
