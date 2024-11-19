@@ -53,6 +53,14 @@ public class MarsRover {
         }
     }
 
+    public void updatePosDir(String command) {
+        if (command.equals("M") || command.equals("B")) {
+            this.updatePos(command);
+        } else {
+            this.updateDir(command);
+        }
+    }
+
     public String controlMarsRover(String commandBatch) {
 
         Arrays.stream(commandBatch.split("")).sequential().forEach(this::updatePosDir);
