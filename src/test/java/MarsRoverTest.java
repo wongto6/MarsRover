@@ -42,4 +42,12 @@ public class MarsRoverTest {
         Assertions.assertEquals(expected_output, finalPosDir);
     }
 
+    @Test
+    void should_return_after_move_forward_status_when_move_forward_dir_S() {
+        String expected_output = "0:-1:S";
+        MarsRover marsRover = new MarsRover(0, 0, "S");
+        String finalPosDir = marsRover.controlMarsRover("M");
+        Assertions.assertEquals(expected_output, finalPosDir);
+    }
+
 }
