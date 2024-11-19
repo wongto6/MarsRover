@@ -26,8 +26,13 @@ public class MarsRover {
         this.dir = dir;
     }
 
-    public void updatePos(String command) {
-
+    public void updatePos() {
+        switch (this.dir) {
+            case "N" -> ++this.yPos;
+            case "S" -> --this.yPos;
+            case "E" -> ++this.xPos;
+            case "W" -> --this.xPos;
+        }
 
     }
 
@@ -41,7 +46,7 @@ public class MarsRover {
 
     public void updatePosDir(String command) {
         if (command.equals("M")) {
-            this.updatePos(command);
+            this.updatePos();
         } else {
             this.updateDir(command);
         }
