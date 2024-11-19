@@ -32,7 +32,10 @@ public class MarsRover {
     }
 
     public void updateDir(String command) {
-
+        switch (command) {
+            case "L" -> this.setDir((String)Arrays.asList(this.DIRECTIONS).get((Arrays.asList(this.DIRECTIONS).indexOf(this.dir) + this.DIRECTIONS.length - 1) % 4));
+            case "R" -> this.setDir((String)Arrays.asList(this.DIRECTIONS).get((Arrays.asList(this.DIRECTIONS).indexOf(this.dir) + 1) % 4));
+        }
 
     }
 
