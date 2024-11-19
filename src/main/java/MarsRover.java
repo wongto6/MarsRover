@@ -22,4 +22,32 @@ public class MarsRover {
         return currentPosDir.append(this.xPos).append(":").append(this.yPos).append(":").append(this.dir).toString();
     }
 
+    public void setDir(String dir) {
+        this.dir = dir;
+    }
+
+    public void updatePos(String command) {
+
+
+    }
+
+    public void updateDir(String command) {
+
+
+    }
+
+    public void updatePosDir(String command) {
+        if (command.equals("M")) {
+            this.updatePos(command);
+        } else {
+            this.updateDir(command);
+        }
+
+    }
+
+    public String controlMarsRover(String command) {
+        this.updatePosDir(command);
+        return this.retrieveCurrentPosDir();
+    }
+
 }

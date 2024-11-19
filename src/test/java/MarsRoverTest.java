@@ -18,4 +18,12 @@ public class MarsRoverTest {
         Assertions.assertEquals(expected_output, marsRover.retrieveCurrentPosDir());
     }
 
+    @Test
+    void should_return_after_left_turn_status_when_left_turn() {
+        String expected_output = "0:0:W";
+        MarsRover marsRover = new MarsRover(0, 0, "N");
+        String finalPosDir = marsRover.controlMarsRover("L");
+        Assertions.assertEquals(expected_output, finalPosDir);
+    }
+
 }
