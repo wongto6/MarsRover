@@ -17,4 +17,8 @@ public class MarsRover {
         this.dir = dir;
     }
 
+    public String retrieveCurrentPosDir() {
+        return "";
+    }
+
 }
