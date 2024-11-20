@@ -3,7 +3,6 @@
 // (powered by FernFlower decompiler)
 //
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MarsRover {
