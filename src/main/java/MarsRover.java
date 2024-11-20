@@ -1,6 +1,8 @@
 import java.util.Arrays;
 
 public class MarsRover {
+    public static final String SEPARATOR = "";
+
     int xPos;
     int yPos;
     Direction dir;
@@ -59,7 +61,7 @@ public class MarsRover {
 
     public String controlMarsRover(String commandBatch) {
 
-        Arrays.stream(commandBatch.split(""))
+        Arrays.stream(commandBatch.split(SEPARATOR))
                 .sequential()
                 .forEach(command -> updatePosDir(Command.valueOf(command)));
         return this.retrieveCurrentPosDir();
