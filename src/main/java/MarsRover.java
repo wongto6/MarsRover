@@ -15,8 +15,7 @@ public class MarsRover {
     }
 
     public String retrieveCurrentPosDir() {
-        StringBuilder currentPosDir = new StringBuilder();
-        return currentPosDir.append(this.xPos).append(":").append(this.yPos).append(":").append(this.dir).toString();
+        return this.xPos + ":" + this.yPos + ":" + this.dir;
     }
 
     public void setDir(Direction dir) {
