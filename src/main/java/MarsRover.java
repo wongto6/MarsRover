@@ -3,12 +3,14 @@
 // (powered by FernFlower decompiler)
 //
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MarsRover {
     int xPos;
     int yPos;
     Direction dir;
+    final Command[] moveCommands = new Command[]{Command.M, Command.B};
 
     public MarsRover(int xPos, int yPos, Direction dir) {
         this.xPos = xPos;
@@ -25,9 +27,9 @@ public class MarsRover {
         this.dir = dir;
     }
 
-    public void updatePos(String command) {
+    public void updatePos(Command command) {
         switch (command) {
-            case "M" -> {
+            case M -> {
                 switch (this.dir) {
                     case N -> ++this.yPos;
                     case S -> --this.yPos;
@@ -35,7 +37,7 @@ public class MarsRover {
                     case W -> --this.xPos;
                 }
             }
-            case "B" -> {
+            case B -> {
                 switch (this.dir) {
                     case N -> --this.yPos;
                     case S -> ++this.yPos;
@@ -46,15 +48,15 @@ public class MarsRover {
         }
     }
 
-    public void updateDir(String command) {
+    public void updateDir(Command command) {
         switch (command) {
-            case "L" -> this.setDir(dir.turnLeft());
-            case "R" -> this.setDir(dir.turnRight());
+            case L -> this.setDir(dir.turnLeft());
+            case R -> this.setDir(dir.turnRight());
         }
     }
 
-    public void updatePosDir(String command) {
-        if (command.equals("M") || command.equals("B")) {
+    public void updatePosDir(Command command) {
+        if (Arrays.asList(moveCommands).contains(command)) {
             this.updatePos(command);
         } else {
             this.updateDir(command);
@@ -63,7 +65,9 @@ public class MarsRover {
 
     public String controlMarsRover(String commandBatch) {
 
-        Arrays.stream(commandBatch.split("")).sequential().forEach(this::updatePosDir);
+        Arrays.stream(commandBatch.split(""))
+                .sequential()
+                .forEach(command -> updatePosDir(Command.valueOf(command)));
         return this.retrieveCurrentPosDir();
     }
 
