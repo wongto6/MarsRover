@@ -200,5 +200,37 @@ public class MarsRoverTest {
         Assertions.assertEquals(expected_output, finalPosDir);
     }
 
+    @Test
+    void should_return_after_move_backward_2_and_turn_left_status_when_move_backward_2_and_turn_left_N() {
+        String expected_output = "1:-1:W";
+        MarsRover marsRover = new MarsRover(0, 0, Direction.N);
+        String finalPosDir = marsRover.controlMarsRover("BLB");
+        Assertions.assertEquals(expected_output, finalPosDir);
+    }
+
+    @Test
+    void should_return_after_move_forward_and_turn_right_status_when_move_forward_and_turn_right_N() {
+        String expected_output = "0:1:E";
+        MarsRover marsRover = new MarsRover(0, 0, Direction.N);
+        String finalPosDir = marsRover.controlMarsRover("MR");
+        Assertions.assertEquals(expected_output, finalPosDir);
+    }
+
+    @Test
+    void should_return_after_move_forward_2_and_turn_right_status_when_move_forward_2_and_turn_right_N() {
+        String expected_output = "1:1:E";
+        MarsRover marsRover = new MarsRover(0, 0, Direction.N);
+        String finalPosDir = marsRover.controlMarsRover("MRM");
+        Assertions.assertEquals(expected_output, finalPosDir);
+    }
+
+    @Test
+    void should_return_after_move_forward_and_turn_right_2_status_when_move_forward_and_turn_right_2_N() {
+        String expected_output = "0:1:S";
+        MarsRover marsRover = new MarsRover(0, 0, Direction.N);
+        String finalPosDir = marsRover.controlMarsRover("MRR");
+        Assertions.assertEquals(expected_output, finalPosDir);
+    }
+
 
 }
