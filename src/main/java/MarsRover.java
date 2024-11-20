@@ -22,6 +22,14 @@ public class MarsRover {
         this.dir = dir;
     }
 
+    public Direction getTurnLeftDir(Direction dir) {
+        return Direction.values()[(dir.ordinal() + (Direction.values().length - 1)) % Direction.values().length];
+    }
+
+    public Direction getTurnRightDir(Direction dir) {
+        return Direction.values()[(dir.ordinal() + 1) % Direction.values().length];
+    }
+
     public void updatePos(Command command) {
         switch (command) {
             case M -> {
@@ -45,8 +53,8 @@ public class MarsRover {
 
     public void updateDir(Command command) {
         switch (command) {
-            case L -> this.setDir(dir.turnLeft());
-            case R -> this.setDir(dir.turnRight());
+            case L -> this.setDir(getTurnLeftDir(dir));
+            case R -> this.setDir(getTurnRightDir(dir));
         }
     }
 
